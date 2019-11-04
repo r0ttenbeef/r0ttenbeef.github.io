@@ -13,4 +13,4 @@ I have created this for fun, to make something that i will care about and i hope
 
 See ya!
 
-![](https://raw.githubusercontent.com/r0ttenbeef/blog/gh-pages/img/01/02.gif)
+![](/img/01/02.gif)

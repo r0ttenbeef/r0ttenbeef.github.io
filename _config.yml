@@ -3,7 +3,7 @@
 
 title: R0ttenbeef Blog
 description: Hack for beef!
-baseurl: "/blog"
+baseurl: "/"
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 

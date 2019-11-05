@@ -65,7 +65,7 @@ The output should be something similar to this:
 
 Make sure that you take a note to use it later.
 
-> 1. Creating PE section header
+> 1 Creating PE section header
 
 Download and run **putty.exe** to make sure that it's work proberly.
 
@@ -99,7 +99,7 @@ now try run the new modified executable to make sure that it's still works.
 It should work with you as well.
 
 
-> 2. Hijack exectution flow
+> 2 Hijack exectution flow
 
 Now open **x64dbg** debugger and throw our new modified executable inside it.
 
@@ -143,7 +143,7 @@ Now press _F8_ to execute the instruction and boom you are inside the code cave.
 ![18-codecave](/img/02/18-codecave.png)
 
 
-> 3. Inject shellcode backdoor code
+> 3 Inject shellcode backdoor code
 
 Alright, the instruction code structure that we will inject right here should be as followed:
 
@@ -175,7 +175,7 @@ And now the shellcode is pasted inside the code cave section.
 
 ![23-shellcode](/img/02/23-shellcode.png)
 
-> 4. Patching the shellcode
+> 4 Patching the shellcode
 
 The shellcode and little bit of modifications to work well with the executable.
 
@@ -218,7 +218,7 @@ Yes!, our shellcode has been executed succesfully.
 
 Great, everything is done proberly.
 
-> 5. Restore execution flow
+> 5 Restore execution flow
 
 Now lets restore the program execution flow in order to run the program itself proberly.
 
@@ -263,7 +263,7 @@ And press _F9_ to run.
 
 The executable continue running succesfully and our shellcode as well.
 
-> 6. Patch and Run
+> 6 Patch and Run
 
 Lets patch our new infected executable by pressing the patch button above in the debugger.
 

@@ -2,7 +2,7 @@
 layout: post
 title: Backdooring PE file
 date: 2019-11-05
-image: /img/02/00-main.jpg
+image: 02/00-main.jpg
 tags: redteam ReverseEngineering
 ---
 

@@ -48,7 +48,7 @@ this is the instructions for getting running processes with its **PID**.
 
 ![06-cname.png](/img/03/06-cname.png)
 
-and what i understand here that while enumerating the running processes it checks for a specific process name and if exists will print `** PROCNAME.EXE is exists in the system` and then getting the machine pc name **NetBIOS name** by calling (GetComputerNameW)[https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-getcomputernamew] function, and then making a short jump if not equal something to print `Error!!!!!`.
+and what i understand here that while enumerating the running processes it checks for a specific process name and if exists will print `** PROCNAME.EXE is exists in the system` and then getting the machine pc name **NetBIOS name** by calling [GetComputerNameW](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-getcomputernamew) function, and then making a short jump if not equal something to print `Error!!!!!`.
 
 ![07-chksys.png](/img/03/07-chksys.png)
 

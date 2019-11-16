@@ -31,7 +31,7 @@ So our flag will go right there, i clicked it to see it in .rdata section.
 ![04-interstingstrings.png](/img/03/04-interstingstrings.png)
 
 There is more interesting strings right here that we should go for each one of them.
-```
+```assembly
 ** %s exist in the system
 Error!!!!!
 ** Computer name: %s

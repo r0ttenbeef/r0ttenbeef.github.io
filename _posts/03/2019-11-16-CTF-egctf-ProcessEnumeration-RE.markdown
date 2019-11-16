@@ -6,7 +6,7 @@ image: 03/00-main.jpg
 tags: ctf ReverseEngineering
 ---
 
-I have participated in [EG-CTF](https://ctf2019.egcert.eg/challenges) and this a writeup for *Process Enumeration* a reverse engineering CTF challenge.
+I have participated in [EG-CTF](https://ctf2019.egcert.eg/challenges) which is organized by [EG-CERT](https://www.egcert.eg/) and this a writeup for *Process Enumeration* a reverse engineering CTF challenge.
 
 ### Enumeration
 

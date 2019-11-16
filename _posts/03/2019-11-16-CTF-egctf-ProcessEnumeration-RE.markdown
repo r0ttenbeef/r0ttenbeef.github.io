@@ -24,7 +24,7 @@ So it's just a PE file, and let us see the binary strings first.
 
 There is an interesting string right here:
 
-`** Flag is \"EGCTF{%s}\"\n\n`
+`** Flag is \"EGCTF{\%s}\"\n\n`
 
 So our flag will go right there, i clicked it to see it in .rdata section.
 

@@ -6,9 +6,9 @@ image: 03/00-main.jpg
 tags: ctf ReverseEngineering
 ---
 
-I have participated in [EG-CTF](https://ctf2019.egcert.eg/challenges) which is organized by [EG-CERT](https://www.egcert.eg/) and this a writeup for [Process Enumeration](https://r0ttenbeef.github.io/CTF-egctf-ProcessEnumeration-RE/) a reverse engineering CTF challenge.
+I have participated in [EG-CTF](https://ctf2019.egcert.eg/challenges) which is organized by [EG-CERT](https://www.egcert.eg/) and this a writeup for [Process Enumeration](https://github.com/r0ttenbeef/r0ttenbeef.github.io/raw/master/_posts/03/Process_Enum.exe) a reverse engineering CTF challenge.
 
-> Download CTF binary executable [Here](https://r0ttenbeef.github.io/CTF-egctf-ProcessEnumeration-RE/)
+> Download CTF binary executable [Here](https://github.com/r0ttenbeef/r0ttenbeef.github.io/raw/master/_posts/03/Process_Enum.exe)
 
 ### Enumeration
 

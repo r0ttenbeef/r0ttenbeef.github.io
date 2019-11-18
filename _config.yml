@@ -23,7 +23,7 @@ github: https://github.com/r0ttenbeef # Add your Facebook handle
 
 #-------------------------------
 # Comment Section (Disqus)
-disqus-identifier: r0ttenbeef # Add your shortname for Disqus Comment. For example mr-brown
+disqus-identifier: disqus_ptBmshCxUf # Add your shortname for Disqus Comment. For example mr-brown
 
 
 #-------------------------------
@@ -33,7 +33,7 @@ instafeed: true # To enable the instafeed, use the value true. To turn off use t
 
 #-------------------------------
 # Google Analytics
-google-analytics: # Add your identifier. For example UA-99631805-1.
+google-analytics: UA-152826821-1 # Add your identifier. For example UA-99631805-1.
 
 
 #-------------------------------

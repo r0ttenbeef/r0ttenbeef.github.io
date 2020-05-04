@@ -123,11 +123,10 @@ Now the user *rick* created successfully, I will add many users to the OU with t
 
 So my Users and their passwords are the following:
 
-`rick   : 03frisco07degu?` *from rockyou.txt*
-`morty  : fr6B@fu4bCMV5D#xu*7`
-`summer : Amy@girl987` *from rockyou.txt*
-`jerry  : sleepygary<3`
-`beth   : (lovemy3kids)` *from rockyou.txt*
+|rick   |morty   |summer   |jerry   |beth   |
+|---|---|---|---|---|
+|03frisco07degu?   |fr6B@fu4bCMV5D#xu*7   |Amy@girl987   |sleepygary<3   |(lovemy3kids)   |
+|from rockyou.txt   |   |from rockyou.txt   |   |from rockyou.txt   |
 
 I have choosed some passwords from rockyou.txt to be useful in our attacking later.
 

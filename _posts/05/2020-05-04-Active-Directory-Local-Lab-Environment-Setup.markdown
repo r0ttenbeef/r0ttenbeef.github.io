@@ -3,7 +3,7 @@ layout: post
 title: Active Directory Local Lab Environment Setup
 date: 2020-05-04
 image: 05/00-main.jpg
-tags: readteam activedirectory
+tags: redteam activedirectory
 ---
 
 ## Introduction

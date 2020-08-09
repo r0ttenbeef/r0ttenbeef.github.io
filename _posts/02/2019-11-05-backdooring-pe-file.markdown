@@ -148,7 +148,7 @@ Now press _F8_ to execute the instruction and boom you are inside the code cave.
 Alright, the instruction code structure that we will inject right here should be as followed:
 
 | PUSHAD    	  	 | Save the registers 		     |
-| PUSHAD          	 | Save the falgs		     |
+| PUSHFD          	 | Save the falgs		     |
 | shellcode       	 | backdoor code		     | 
 | Stack Alignment 	 | Restore the stack pervious value  |
 | POPFD		  	 | Restore the flags		     |

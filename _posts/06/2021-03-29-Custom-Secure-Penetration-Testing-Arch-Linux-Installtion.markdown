@@ -2,7 +2,7 @@
 layout: post
 title: Secure Arch Linux Installation for Penetration testing and redteam
 date: 2021-03-29
-image: 06/00-main.jpg
+image: 06/00-main.png
 tags: pentest linux
 ---
 

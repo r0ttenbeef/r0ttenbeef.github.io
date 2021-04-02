@@ -33,7 +33,27 @@ I will use the command line utility **cfdisk** for disk partitioning, Of course 
 - Create partition for /boot (EX. /dev/sda1) : **1G**
 - Create partition for / (EX. /dev/sda2) : **Rest of the disk size**
 
-Then we will do a disk encryption against `/` partition, We don't encrypt the `/boot` because this is the partition we are booting from, I know there is a many methods for encrypting `/boot` partition but I will not go for it in this blog post.
+After launching **cfdisk** choose the label type "dos".
+
+![001-labeltype.png](/img/06/001-labeltype.png)
+
+Then do the partition segmentation, one for /boot and one for our LVM partition, Then mark the /boot partition with bootable flag.
+
+![002-bootable.png](/img/06/002-bootable.png)
+
+After finishing the partitioning process choose write to save and apply.
+
+![003-write-cfdisk.png](/img/06/003-write-cfdisk.png)
+
+Type **yes** and press enter and it's done.
+
+![004-accept-write.png](/img/06/004-accept-write.png)
+
+Now we have our partitions created, Run `lsblk` command to make sure that the partitions created.
+
+![005-lsblk.png](/img/06/005-lsblk.png)
+
+We will do a disk encryption against `/` partition, We don't encrypt the `/boot` because this is the partition we are booting from, I know there is a many methods for encrypting `/boot` partition but I will not go for it in this blog post.
 
 We will use [Luks Encryption](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup) in this setup, The provide your passphrase key and DO NOT forget it this will be nearly impossible to recover.
 
@@ -105,9 +125,9 @@ grub-install --recheck /dev/sda
 cp /usr/share/locale/en@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
 ```
 
-This step we will be installing the kernel we want to use, Here I will install **LTS linux kernel** for more stability, You can install the kernel you want for sure.
-
 > ### Kernel installation - Long-Term Support Linux kernel
+
+This step we will be installing the kernel we want to use, Here I will install **LTS linux kernel** for more stability, You can install the kernel you want for sure.
 
 ```bash
 pacman -S linux-lts # Choose mkinitcpio
@@ -115,9 +135,9 @@ grub-mkconfig -o /boot/grub/grub.cfg
 pacman -S linux-lts-headers
 ```
 
-Lets reconfigure the [mkinitcpio](https://wiki.archlinux.org/index.php/Mkinitcpio) which is a script that will load the kernel modules, What we going to do is changing the initialization of the boot process sequence before mounting the root file system.
-
 > ### Initcpio configuration
+
+Lets reconfigure the [mkinitcpio](https://wiki.archlinux.org/index.php/Mkinitcpio) which is a script that will load the kernel modules, What we going to do is changing the initialization of the boot process sequence before mounting the root file system.
 
 - Edit `/etc/mkinitcpio.conf`
 
@@ -130,9 +150,9 @@ Now apply the new configurations.
 mkinitcpio -p linux-lts
 ```
 
-Create the sudo user that you will be using later, Assign user password and continue the configuration process.
-
 > ### User configuration
+
+Create the sudo user that you will be using later, Assign user password and continue the configuration process.
 
 ```bash
 passwd
@@ -172,11 +192,11 @@ echo "YOUR_PREFERED_HOSTNAME" > /etc/hostname
 pacman -S wget openssh openvpn openssl wpa_supplicant iw wireless_tools networkmanager network-manager-applet curl git bash-completion tmux htop pkgstats gst-plugins-good ttf-liberation ttf-bitstream-vera adobe-source-sans-pro-fonts ttf-droid ttf-dejavu ttf-anonymous-pro inetutils netcat nmap 
 ```
 
+> ### Installing Desktop Environment - XFCE
+
 Now in this step we will install the Desktop Environment for our fresh installed OS, Here I will use **XFCE** DE with **LightDM** for it's stability, highly customizable and light weight.
 
 You can use whatever you want like Gnome, KDE, etc.
-
-> ### Installing Desktop Environment - XFCE
 
 ```bash
 pacman -S xorg xfce4 xfce4-goodies gvfs gvfs-mtp lightdm lightdm-gtk-greeter-settings light-locker gnome-keyring thunar-archive-plugin thunar-media-tags-plugin thunar-volman ffmpegthumbnailer pavucontrol firefox zip unzip unrar ntfs-3g pulseaudio viewnior evince mpv xdg-user-dirs

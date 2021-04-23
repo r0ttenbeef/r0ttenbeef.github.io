@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Secure Arch Linux Installation for Penetration testing and redteam
+title: Build your own penetration testing and red teaming os based on Arch Linux
 date: 2021-03-29
 image: 06/00-main.png
 tags: pentest linux

@@ -4,12 +4,12 @@
 title: R0ttenbeef Blog
 description: Hack for beef!
 baseurl: "/"
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://r0ttenbeef.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 
 #-------------------------------
 # About Section
-author-name:   r0ttenbeef
+author-name: r0ttenbeef
 author-avatar: 00.jpg
 
 

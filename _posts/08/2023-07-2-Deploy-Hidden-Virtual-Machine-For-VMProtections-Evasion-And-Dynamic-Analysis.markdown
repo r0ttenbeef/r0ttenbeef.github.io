@@ -97,10 +97,12 @@ virsh edit <YOUR_MACHINE_NAME>
 	<topology sockets='1' dies='1' cores='6' threads='1'/>
 ```
 - Under the `topology` tag add the following line
+
 ```xml
 <feature policy='disable' name='hypervisor'/>
 ```
 - Now before the `</features>` tag add the following line
+
 ```xml
 <kvm>
 	<hidden state='on'/>
@@ -135,12 +137,14 @@ If we checked the code of **Pafish** we will find out that it's grabbing it from
 We can evade this by doing the following:
 - Turnoff the virtual machine
 - Edit the virtual machine xml using `virsh`
+
 ```bash
 virsh edit <MACHINE_NAME>
 ```
 - Before the tag `</hyperv>` add the following
+
 ```xml
-`<vendor_id state='on' value='ANYTHING YOU WANT'/>`
+<vendor_id state='on' value='ANYTHING YOU WANT'/>
 ```
 
 It should looks like this
@@ -152,6 +156,7 @@ If we checked again will see it know passed successfully but "Checking hyperviso
 ![15.png](/img/08/15.png)
 
 If we check the **Pafish** code will see it checks for the [CPUID bits](https://www.kernel.org/doc/html/v5.14/virt/kvm/cpuid.html#kvm-cpuid-bits "Permalink to this headline") which returns a constant signatures
+
 ```python
 function: KVM_CPUID_SIGNATURE (0x40000000)
 
@@ -168,10 +173,12 @@ edx = 0x4d
 So to bypass this do the following:
 - Turnoff the virtual machine
 - Edit the virtual machine xml using `virsh`
+
 ```bash
 virsh edit <MACHINE_NAME>
 ```
 - Add and edit the lines between `<cpu` tags to be look like the following
+
 ```xml
 <cpu mode='host-model' check='partial'>
     <topology sockets='1' dies='1' cores='6' threads='1'/>
@@ -393,6 +400,7 @@ After that open windows cmd with Admin Privileges, and go to `C:\Program Files\Q
 So the services should be removed completely. Unmount the disk driver and remove the Qemu-ga path.
 
 Also remove "Spice Agent" Service and then delete its path at `C:\Program Files\Spice Agent` recursively. 
+
 ```powershell
 sc delete spice-agent
 ```

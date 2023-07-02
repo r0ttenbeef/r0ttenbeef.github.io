@@ -91,6 +91,7 @@ We need to get rid of that detection, We can do this by modifying the vm XML usi
 virsh edit <YOUR_MACHINE_NAME>
 ```
 - Find the following line
+
 ```xml
 <cpu mode='host-passthrough' check='none' migratable='on'>
 	<topology sockets='1' dies='1' cores='6' threads='1'/>

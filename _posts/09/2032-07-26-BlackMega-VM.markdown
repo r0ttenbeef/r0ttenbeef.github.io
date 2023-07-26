@@ -12,6 +12,7 @@ Convert windows virtual machine to a lab for malware analysis using ansible play
 ## Requirements
 
 Just an up and running up-to-date windows 10 or windows 11 virtual machine without bother doing any extra installation.
+
 Also make sure to take a snapshot before running the playbook in case any damages could happen.
 
 ## Recommended Specs
@@ -24,6 +25,10 @@ Also make sure to take a snapshot before running the playbook in case any damage
 ## Add your own tools
 
 The default BlackMega VM tools are installed using [Chocolaty](https://chocolatey.org/) package manager for windows for easy and fast installation, The tools list are stored in `group_vars/all.yml` as it's easy to be modified as needed.
+
+## Fast Demo
+
+![BlackMega VM Demo](/img/09/BlackMega-VM_Demo.mp4)
 
 ## Windows configurations before running
 
@@ -87,4 +92,5 @@ ansible-playbook start.yml -i hosts.ini
 ### Cleanup after finishing
 
 You can now simply revert any critical you have made like disabling WinRM, Reactivate the UAC.
+
 In `Desktop\My_Tools\Maintainance` folder you will see some tools that will help you enable any disabled services like windows updates, edge blocking, etc.

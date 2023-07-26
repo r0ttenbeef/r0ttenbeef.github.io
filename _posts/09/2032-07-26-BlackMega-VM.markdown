@@ -1,6 +1,6 @@
 ---
 layout: post
-title: BlackMega-VM
+title: BlackMega Malware Analysis VM
 date: 2023-07-26
 image: 09/00-main.png
 tags: Malware Automation
@@ -16,13 +16,10 @@ Also make sure to take a snapshot before running the playbook in case any damage
 
 ## Recommended Specs
 
-Operating System: **Windows 10**
-
-CPU Cores: **6**
-
-RAM Size: **6244 MB**
-
-Disk Space: **100 GiB**
+- Operating System: **Windows 10**
+- CPU Cores: **6**
+- RAM Size: **6244 MB**
+- Disk Space: **100 GiB**
 
 ## Add your own tools
 
@@ -46,6 +43,7 @@ winrm set winrm/config/service/auth '@{Basic="true"}'
 winrm set winrm/config/service '@{AllowUnencrypted="true"}'
 ```
 
+
 3. Disable Windows Defender and Firewall
 ![Pasted image 20230717172211](https://github.com/r0ttenbeef/BlackMega-VM/assets/48027449/1e87666d-2bcb-454b-9bee-e73182a6f4fa)
 
@@ -63,9 +61,10 @@ After cloning the BlackMega VM repository install python **winrm** module.
 pip install -r requirements
 ```
 
+
 The hosts credentials should be stored at `hosts.ini` file like following example.
 
-```css
+```ini
 [windows_box]
 10.0.20.5
 
@@ -77,11 +76,13 @@ ansible_connection = winrm
 ansible_winrm_transport = basic
 ```
 
+
 Now you can start ansible playbook.
 
 ```bash
 ansible-playbook start.yml -i hosts.ini
 ```
+
 
 ### Cleanup after finishing
 

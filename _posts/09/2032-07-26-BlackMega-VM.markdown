@@ -28,8 +28,7 @@ The default BlackMega VM tools are installed using [Chocolaty](https://chocolate
 
 ## Fast Demo
 
-![BlackMega VM Demo](/img/09/BlackMega-VM_Demo.mp4)
-[![BlackMega VM Demo](/img/09/00-main.png)](/img/09/BlackMega-VM_Demo.mp4)
+[![](/img/09/01-Thum.png)](/img/09/BlackMega-VM_Demo.mp4)
 
 ## Windows configurations before running
 

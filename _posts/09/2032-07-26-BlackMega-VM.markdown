@@ -9,6 +9,8 @@ tags: Malware Automation
 
 Convert windows virtual machine to a lab for malware analysis using ansible playbooks for automated installation of malware analysis tools and gadgets, Debloating useless windows services to reduce windows traffic noise and overwhelming running processes.
 
+- Github Repository: https://github.com/r0ttenbeef/BlackMega-VM
+
 ## Requirements
 
 Just an up and running up-to-date windows 10 or windows 11 virtual machine without bother doing any extra installation.
@@ -27,6 +29,8 @@ Also make sure to take a snapshot before running the playbook in case any damage
 The default BlackMega VM tools are installed using [Chocolaty](https://chocolatey.org/) package manager for windows for easy and fast installation, The tools list are stored in `group_vars/all.yml` as it's easy to be modified as needed.
 
 ## Fast Demo
+
+A short small demonstration video after finishing blackmega-vm installation, Click the image down below.
 
 [![](/img/09/01-Thum.png)](/img/09/BlackMega-VM_Demo.mp4)
 

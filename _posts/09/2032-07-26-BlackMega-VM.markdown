@@ -9,7 +9,7 @@ tags: Malware Automation
 
 Convert windows virtual machine to a lab for malware analysis using ansible playbooks for automated installation of malware analysis tools and gadgets, Debloating useless windows services to reduce windows traffic noise and overwhelming running processes.
 
-- Github Repository: [https://github.com/r0ttenbeef/BlackMega-VM](https://github.com/r0ttenbeef/BlackMega-VM)
+> Github Repository: [https://github.com/r0ttenbeef/BlackMega-VM](https://github.com/r0ttenbeef/BlackMega-VM)
 
 ## Requirements
 

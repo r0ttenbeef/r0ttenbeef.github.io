@@ -206,6 +206,12 @@ At the QEMU it didn't pass the first detection `Scsi port->bus->target id->logic
 So if we changed "Identifier" value to something else it will bypass this detection.
 ![20.png](/img/08/20.png)
 
+Also if you saw this registry in `Scsi Bus 1` like below:
+![38.png](/img/08/38.png)
+
+Then try to remove any mounted CDROM from the Virtual Machine and after shutting down the VM and rerun it again the registry key should disappear.
+![39.png](/img/08/39.png)
+
 Now at Bochs detection it traced the registry path `HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System`  and check for the "SystemBiosVersion" Value.
 ![21.png](/img/08/21.png)
 

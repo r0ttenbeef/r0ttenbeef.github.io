@@ -468,6 +468,35 @@ Surely you can modify all these strings between the `<entry>` elements, Then pow
 
 The changes has its effects but still some strings related to the QEMU, I actually tried alot of steps to change it non of them worked until now. However we will move to the next step.
 
+## Rebuild SeaBIOS
+
+Here we will try to modify some values and replace it with something more realistic.
+- So first clone the [SeaBIOS](https://www.seabios.org/SeaBIOS) source code
+```bash
+git clone https://github.com/coreboot/seabios.git
+```
+
+- Then will modify the values in `src/config.h` and replace the **QEMU** and **Bochs** string with something else.
+```c
+//#define BUILD_APPNAME  "QEMU"
+//#define BUILD_CPUNAME8 "QEMUCPU "
+//#define BUILD_APPNAME6 "QEMU  "
+//#define BUILD_APPNAME4 "QEMU"
+#define BUILD_APPNAME  "Bochs"
+#define BUILD_CPUNAME8 "BOCHSCPU"
+#define BUILD_APPNAME6 "BOCHS "
+#define BUILD_APPNAME4 "BXPC"
+```
+
+- After saving `src/config.h` file build the current modified version and replace it with the old `bios.bin` one.
+```bash
+make
+sudo cp /usr/share/seabios/bios.bin /usr/share/seabios/bios.bin.bak
+sudo cp out/bios.bin /usr/share/seabios/bios.bin
+```
+
+> **Make sure that the machine is actually booting from bios.bin file, If not do the same instructions above and replace it with whatevery bios file that the machine is booting from.**
+
 ## Manipulating the registry keys
 
 In the beginning of this post I have showed an example of modifying the registry key `HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\SystemBiosVersion` so now we will proceed modifying it.

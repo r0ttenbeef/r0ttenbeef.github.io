@@ -485,7 +485,19 @@ So in the path `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\SCSI` we see mo
 So every key that contains value "QEMU" and "VirtIO" should be replaced by any other strings which is easy to do.
 ![37.png](/img/08/37.png)
 
+-  Summary of registry keys that needs to change
+
+| Registry Path |        Name         |
+|---------------|---------------------|
+| `HKLM\HARDWARE\ACPI\DSDT` | `BOCHS_\BXPC___` |
+| `HKLM\HARDWARE\ACPI\FADT` | `BOCHS_\BXPC___` |
+| `HKLM\HARDWARE\ACPI\RSDT` | `BOCHS_\BXPC___` |
+| `HKLM\SYSTEM\CurrentControlSet\Enum\SCSI` | **Replace any QEMU related strings** |
+| `HKLM\HARDWARE\DEVICEMAP\Scsi\Scsi Port 0\Scsi Bus 0\Target Id 0\Logical Unit Id 0` | `Identifier` |
+| `HKLM\HARDWARE\DEVICEMAP\Scsi\Scsi Port 0\Scsi Bus 1\Target Id 0\Logical Unit Id 0` | `Identifier` **Remove mounted CDROM** |
+| `HKLM\HARDWARE\DESCRIPTION\System` | `SystemBiosVersion` |
+
 The problem here is you have to change registry subkey that contains same strings but you will face a permission issue, As the program checks all keys and subkeys in the registry path looking for the strings mentioned earlier.
 
-> I will stop right there until doing more researches about more VM detection evasion. Will add more techniques later if possible.
+> Keep updated with this post as I will add more techniques for VM detection bypasses
 

@@ -468,7 +468,7 @@ Surely you can modify all these strings between the `<entry>` elements, Then pow
 
 The changes has its effects but still some strings related to the QEMU, I actually tried alot of steps to change it non of them worked until now. However we will move to the next step.
 
-## Rebuild SeaBIOS
+## Modify and rebuild SeaBIOS from source
 
 Here we will try to modify some values and replace it with something more realistic.
 - So first clone the [SeaBIOS](https://www.seabios.org/SeaBIOS) source code
@@ -486,6 +486,18 @@ git clone https://github.com/coreboot/seabios.git
 #define BUILD_CPUNAME8 "BOCHSCPU"
 #define BUILD_APPNAME6 "BOCHS "
 #define BUILD_APPNAME4 "BXPC"
+```
+
+- So it will be something similer to this:
+```c
+//#define BUILD_APPNAME  "QEMU"
+//#define BUILD_CPUNAME8 "QEMUCPU "
+//#define BUILD_APPNAME6 "QEMU  "
+//#define BUILD_APPNAME4 "QEMU"
+#define BUILD_APPNAME  "GIGABYTE"
+#define BUILD_CPUNAME8 "GIGABYTE"
+#define BUILD_APPNAME6 "AORUS "
+#define BUILD_APPNAME4 "AORUS"
 ```
 
 - After saving `src/config.h` file build the current modified version and replace it with the old `bios.bin` one.

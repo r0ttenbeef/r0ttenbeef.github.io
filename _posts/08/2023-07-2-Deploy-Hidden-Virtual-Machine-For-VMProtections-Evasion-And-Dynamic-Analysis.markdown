@@ -14,7 +14,7 @@ In this post I'm going to create a KVM based Windows 11 virtual machine trying t
 ## Virtual Machine Specs
 
 Virtual Machine Hypervisor: **KVM**
-Operating System: **Windows 10**
+Operating System: **Windows 10 / Windows 11**
 CPU Cores: **6**
 RAM Size: **6244 MB**
 
@@ -33,6 +33,27 @@ Then apply and begin installation.
 
 > **By the way you should know how to install windows os inside kvm hypervisor as it's a bit different from other hypervisors, Install the os and the QEMU tools and get back**
 
+## Install windows without XApps Bloatware and Microsoft Account
+
+Want to install windows without installing the XApps bloatware with only 2-clicks ? Here's a hidden trick, While in **Windows Setup** window, Select **English (World)** in **Time and currency format**
+![40.png](/img/08/40.png)
+
+After installation is done, You will notice that no XApps bloatwares like candy crush, tiktok, instagram, etc. didn't installed.
+![41.png](/img/08/41.png)
+
+While going through the installation process, You will get this page that will ask you to sign-in with your Microsoft account.
+![42.png](/img/08/42.png)
+
+To bypass that, Hit **Shift + F10** and type inside the command prompt `OOBE\BYPASSNRO` then hit **Enter**.
+![43.png](/img/08/43.png)
+
+It will restart the machine, After it's up hit **Shift + F10** again and type `ipconfig /release` and hit **Enter**.
+![44.png](/img/08/44.png)
+
+Now Select **I don't have internet** and hit **Next**.
+![45.png](/img/08/45.png)
+
+Now you should proceed without sign-in Microsoft account.
 
 ## Create VMProtected executable binary
 

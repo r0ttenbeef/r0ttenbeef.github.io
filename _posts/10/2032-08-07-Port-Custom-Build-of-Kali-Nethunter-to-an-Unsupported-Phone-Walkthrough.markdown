@@ -139,4 +139,24 @@ Also before running `./build.sh` there's syntax error in line `847` so replace `
 
 - Select "**S. Setup Environment and download toolchains.**"
 - Then build test kernel so select "**2. Configure & compile kernel from scratch**"
-- Select your device's defconfig, In my case I have selected "****"
+- Select your device's defconfig, In my case I have selected "**surya_defconfig**" ![11.png](/img/10/11.png)
+- Type `y` and press tab and click "Save" to save the current configuration to `.config` file then "Exit", It's just a test kernel it will be modified later then wait for it to finish kernel compiling.
+- If build was successful, select "**8. Edit Anykernel config**" to add some device details like codename, boot_block, slot_device, etc. ![12.png](/img/10/12.png)
+- Now let's create our first test kernel, Select "**6. Create Anykernel zip**"
+- It will be available at `kali-nethunter-kernel/output/anykernel-NetHunter.zip`
+- Flash the kernel like we flashed the custom ROM before in TWRP custom recovery.
+```bash
+adb reboot-bootloader
+fastboot boot twrp-3.5.2_10-10-surya.img
+adb push anykernel-NetHunter.zip /bluetooth
+# Go to install -> Up A Level -> bluetooth -> anykernel-NetHunter.zip and swipe to flash
+```
+![13.png](/img/10/13.png)
+
+## Patching the Kernel
+
+As the Kali Nethunter documentation mentioned that some devices need additional patches to avoid build errors, Which it can be applied from their `build.sh` script.
+
+So run `./build.sh` and select "**4. Apply NetHunter kernel patches**" and then select the patch directory closest matching to your kernel version, In my case the kernel version is **4.14**, After that apply every patch in the list but if it showed message like **Warning: The test run completed with errors, apply the patch anyway?** don't apply it and skip it to another patch and so on.
+
+If you have created a fork from the kernel source, You should commit each patch you made in the kernel source.

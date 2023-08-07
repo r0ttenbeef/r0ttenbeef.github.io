@@ -100,3 +100,43 @@ adb push Magisk-v26.1.apk /storage/emulated/0
 
 - Then open the file manager, Click and install the magisk application. It may ask for reboot so go ahead.
 
+I didn't want to install GApps as I was afraid to make any conflicts or causing any unstable behavior, But you can try it yourself after finishing the whole process.
+
+## Find Kernel Sources and Making a Test Kernel
+
+Before going any further I highly recommend to read the official [**Kali Nethunter Documentation**](https://www.kali.org/docs/nethunter) as it's very useful and I will quote alot from it.
+
+So now we need a supported kernel source to work with, LineageOS have their opensource kernels available on github. In my case I will clone the kernel version "**4.14**" of Surya phone from https://github.com/LineageOS/android_kernel_xiaomi_surya branch **Lineage-20** so it will be compatible with our LineageOS custom ROM.
+
+After cloning the kernel source open it and clone https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel inside the root of the kernel's directory.
+```bash
+git clone https://github.com/LineageOS/android_kernel_xiaomi_surya.git
+cd android_kernel_xiaomi_surya
+git clone https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel.git
+```
+
+Find your best matching local.config example file, for me I will use `local.config.allinone` config and will modify it.
+```bash
+cp local.config.examples/local.config.example.allinone local.config
+```
+
+To avoid issues while building the kernel, We will modify the `local.config` to use newer **toolchains**, So instead of using `linaro-4.9` we will use `linaro-5.5` like following.
+```c
+CROSS_COMPILE_ARM32_SRC="https://kali.download/nethunter-images/toolchains/linaro-armhf-5.5.tar.xz"
+CCD32="${TD}/linaro-armhf-5.5"
+
+CROSS_COMPILE_SRC="https://kali.download/nethunter-images/toolchains/linaro-aarch64-5.5.tar.xz"
+CCD="${TD}/aarch64-5.5"
+```
+
+It's better to install these packages instead installing it from `build.sh` script as it will be more faster to do it in oneline than looping in each package.
+```bash
+apt install axel bc binutils-aarch64-linux-gnu build-essential ccache curl device-tree-compiler pandoc libncurses5-dev lynx lz4 fakeroot xz-utils whiptail zip unzip
+```
+
+Also before running `./build.sh` there's syntax error in line `847` so replace `THREADS = 10` with `THREADS=10` and then run the script.
+![10.png](/img/10/10.png)
+
+- Select "**S. Setup Environment and download toolchains.**"
+- Then build test kernel so select "**2. Configure & compile kernel from scratch**"
+- Select your device's defconfig, In my case I have selected "****"

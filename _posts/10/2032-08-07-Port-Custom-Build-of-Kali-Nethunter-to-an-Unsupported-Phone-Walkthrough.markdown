@@ -81,11 +81,14 @@ cp Magisk-v26.1.apk Magisk-v26.1.zip
 adb push Magisk-v26.1.zip /bluetooth
 ```
 
-- Back to phone, Go to (Install -> "Up A Level" -> bluetooth -> "Select the custom ROM file" -> Swipe to confirm flash) ![07.gif](/img/10/07.gif)
+- Back to phone, Go to (Install -> "Up A Level" -> bluetooth -> "Select the custom ROM file" -> Swipe to confirm flash)
+![07.gif](/img/10/07.gif)
 
-- Then flash Magisk like we did with custom ROM ![08.gif](/img/10/08.gif)
+- Then flash Magisk like we did with custom ROM
+![08.gif](/img/10/08.gif)
 
-- Now reboot the device ![09.gif](/img/10/09.gif)
+- Now reboot the device
+![09.gif](/img/10/09.gif)
 
 - After device rebooted successfully, Enable the "USB Debugging" again from "Developer Options" and push magisk manager apk file to the phone
 ```bash

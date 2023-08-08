@@ -258,11 +258,11 @@ Now in the kernel configuration section select "**3. Configure & recompile kerne
 
 Finaly the kernel configuration has been done, Save and Exit the menuconfig to start the kernel compiling.
 
-> **I have done some modifications to fix some errors while compiling the kernel, Check kernel source code fork with all my modifications and patches https://github.com/r0ttenbeef/android_kernel_xiaomi_surya**
+> **I have done some modifications to fix some errors while compiling the kernel, Check kernel source code fork with all my modifications and patches [https://github.com/r0ttenbeef/android_kernel_xiaomi_surya](https://github.com/r0ttenbeef/android_kernel_xiaomi_surya)**
 
 ## Build Kali Nethunter Full
 
-According to https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/README.md This repository contains all the pre-compiled kernels, kernel modules, and installation scripts necessary for building an installer tailored for a supported device.
+According to [https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/README.md](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/README.md) This repository contains all the pre-compiled kernels, kernel modules, and installation scripts necessary for building an installer tailored for a supported device.
 
 - So we will need to clone **kali-nethunter-project** repository and execute `./bootstrap.sh` that will clone [kali-nethunter-devices](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/) repository to `devices` directory.
 ```bash
@@ -271,7 +271,7 @@ cd kali-nethunter-project/nethunter-installer
 ./bootstrap.sh # Press enter 3 times to skip and wait until cloning is finished
 ```
 
-- You can add your unsupported device by following the instructions here: https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/README.md
+- You can add your unsupported device by following the instructions here: [https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/README.md](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/README.md)
 - Now execute the following commands
 ```bash
 mkdir kali-nethunter-project/nethunter-installer/devices/thirteen/surya-los

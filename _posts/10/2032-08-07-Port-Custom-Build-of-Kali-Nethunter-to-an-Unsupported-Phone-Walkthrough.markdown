@@ -10,6 +10,7 @@ tags: android
 
 Lately I was trying to port kali nethunter to my old phone with supported external wifi card and things to be worked without much issues that I have found while using custom pre-built kali nethunter roms and custom kernel and it appears non of them worked in a stable way and not much support for the external wifi cards (**Like the well-known TP-LINK W722N v2**) and some other tools. So I have decided to create my own custom build for kali nethunter and this blog post will be about my walkthrough on how I have created my custom build for my unsupported phone.
 
+---
 ## Requirements
 
 First it's recommended that you have PC or Laptop with ubuntu based linux distro installed on it, In this walkthrough I have used [**Linux Mint**](https://linuxmint.com/) with `adb` and `fastboot` tools installed.
@@ -40,6 +41,7 @@ Then you need an android phone with bootloader unlocked. In case of Xiaomi you w
 
 > **Be informed that this process will erase all your phone data so it's recommended to backup your data before starting. Also unlocking your phone it makes you phone vulnerable so make sure you are using an old phone that you are not using with any personal sensitive data.**
 
+---
 ## Flash Custom ROM with Custom Recovery
 
 Now we will have to flash custom ROM to be used with kali nethunter using custom recovery called [**TWRP**](https://twrp.me/about/) and check if TWRP have an official build for your device here: https://twrp.me/Devices/ but I didn't find my phone right there so I have searched for unofficial build of TWRP following with my phone codename.
@@ -102,6 +104,7 @@ adb push Magisk-v26.1.apk /storage/emulated/0
 
 I didn't want to install GApps as I was afraid to make any conflicts or causing any unstable behavior, But you can try it yourself after finishing the whole process.
 
+---
 ## Find Kernel Sources and Making a Test Kernel
 
 Before going any further I highly recommend to read the official [**Kali Nethunter Documentation**](https://www.kali.org/docs/nethunter) as it's very useful and I will quote alot from it.
@@ -153,6 +156,7 @@ adb push anykernel-NetHunter.zip /bluetooth
 ```
 ![13.png](/img/10/13.png)
 
+---
 ## Patching the Kernel
 
 As the Kali Nethunter documentation mentioned that some devices need additional patches to avoid build errors, Which it can be applied from their `build.sh` script.
@@ -161,6 +165,7 @@ So run `./build.sh` and select "**4. Apply NetHunter kernel patches**" and then 
 
 If you have created a fork from the kernel source, You should commit each patch you made in the kernel source.
 
+---
 ## Configuring the Kernel
 
 Now in the kernel configuration section select "**3. Configure & recompile kernel from previous run**" and type `y` to enter the kernel configuration menuconfig page and do the following steps.
@@ -260,6 +265,7 @@ Finaly the kernel configuration has been done, Save and Exit the menuconfig to s
 
 > **I have done some modifications to fix some errors while compiling the kernel, Check kernel source code fork with all my modifications and patches [https://github.com/r0ttenbeef/android_kernel_xiaomi_surya](https://github.com/r0ttenbeef/android_kernel_xiaomi_surya)**
 
+---
 ## Build Kali Nethunter Full
 
 According to [https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/README.md](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/README.md) This repository contains all the pre-compiled kernels, kernel modules, and installation scripts necessary for building an installer tailored for a supported device.
@@ -295,6 +301,7 @@ adb push nethunter-20230808_034812-surya-los-thirteen-kalifs-full.zip /storage/e
 And HERE WE GO, The Custom build of Kali Nethunter is here.
 ![16.jpg](/img/10/16.jpg)
 
+---
 ## Add RTL8188EU Drivers for TP-Link TL-W722N v2,v3 and ALFA-AWUS036NHA to the Kernel
 
 In the Kali Nethunter documentation they mentioned the following: [TP-Link TL-WN722N v1 (Please note that v2 & v3 have unsupported chipsets) but v2 and v3 may be supported using RTL8812AU drivers.)](https://www.kali.org/docs/nethunter/wireless-cards/) So after doing some researching we need to do the following steps to add support to [TP-LINK TL-WN722N v2](http://en.techinfodepot.shoutwiki.com/wiki/TP-LINK_TL-WN722N_v2) which I already have and maybe v3, I didn't tested yet and [ALFA-AWUS036NHA](https://alfa-network.eu/awus036nha) which will supported too.
@@ -346,6 +353,7 @@ So finally we are done 💀
 
 <div class="tenor-gif-embed" data-postid="26525865" data-share-method="host" data-aspect-ratio="1.64948" data-width="100%"><a href="https://tenor.com/view/mr-robot-elliot-alderson-computer-train-gif-26525865">Mr Robot Elliot Alderson GIF</a>from <a href="https://tenor.com/search/mr+robot-gifs">Mr Robot GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 
+---
 ## Important Links
 - LineageOS 20.0 moded and patched kernel source: [https://github.com/r0ttenbeef/android_kernel_xiaomi_surya](https://github.com/r0ttenbeef/android_kernel_xiaomi_surya)
 - Xiaomi Poco X3 NFC Lineage20 support Merge Request to kali nethunter devices: [https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/merge_requests/352](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/merge_requests/352)

@@ -160,3 +160,137 @@ As the Kali Nethunter documentation mentioned that some devices need additional 
 So run `./build.sh` and select "**4. Apply NetHunter kernel patches**" and then select the patch directory closest matching to your kernel version, In my case the kernel version is **4.14**, After that apply every patch in the list but if it showed message like **Warning: The test run completed with errors, apply the patch anyway?** don't apply it and skip it to another patch and so on.
 
 If you have created a fork from the kernel source, You should commit each patch you made in the kernel source.
+
+## Configuring the Kernel
+
+Now in the kernel configuration section select "**3. Configure & recompile kernel from previous run**" and type `y` to enter the kernel configuration menuconfig page and do the following steps.
+
+> **The next steps are taken from Kali Nethunter Official Documentation, Please refer to it if you face any kind of issues.**
+
+![14.png](/img/10/14.png)
+
+- In section **General Setup**
+	- Select **Local version - append to kernel release** and clear the **Local version**
+	- Set **Default hostname** to **kali**
+	- Check **\[\*\] System V IPC** (CONFIG_SYSVIPC=y)
+- In section **\[\*\] Enable loadable module support**
+	- Check **\[\*\] Module unloading**
+	- Check **\[\*\] Forced module unloading**
+	- Check **\[\*\] Module versioning support**
+- In section **\[\*\] Boot options**
+	- Check **\[\*\] Build a concatenated Image.gz/dtb by default**
+	- Select **Appended DTB Kernel Image name (Image.gz-dtb)** and make sure that **Image.gz-dtb** is selected.
+- In section **\[\*\] Networking support ->Bluetooth subsystem support ->  Bluetooth device drivers**
+	- Check **<\*> HCI USB driver**
+	- Check **\[\*\] Broadcom protocol support**
+	- Check **\[\*\] Realtek protocol support**
+	- Check **<\*> HCI UART driver**
+	- Check **\[\*\] UART (H4) protocol support**
+	- Check **<\*> HCI BCM203x USB driver**
+	- Check **<\*> HCI BPA10x USB driver**
+	- Check **<\*> HCI BlueFRITZ! USB driver**
+	- Check **<\*> HCI VHCI (Virtual HCI device) driver**
+- In section **Device Drivers -> Android**
+	- Check **\[\*\] Android Binder IPC Driver**
+- In section **\[\*\] Networking support -> Wireless**
+	- Check **\[\*\] cfg80211 wireless extensions compatibility**
+	- Check **<\*> Generic IEEE 802.11 Networking Stack (mac80211)**
+	- Check **\[\*\] Enable mac80211 mesh networking (pre-802.11s) support**
+- In section **Device Drivers -> \[\*\] Network device support -> <\*> USB Network Adapters**
+	- Check **<\*> USB RTL8150 based ethernet device support**
+	- Check **<\*> Realtek RTL8152/RTL8153 Based USB Ethernet Adapters**
+- In section **Device Drivers -> \[\*\] Network device support -> \[\*\] Wireless LAN**
+	- Check **\[\*\] Atheros/Qualcomm devices**
+	- Check **<\*> Atheros HTC based wireless cards support**
+	- Check **<\*> Linux Community AR9170 802.11n USB support**
+	- Check **<\*> Atheros mobile chipsets support**
+	- Check **<\*> Atheros ath6kl USB support**
+	- Check **\[\*\] MediaTek devices**
+	- Check **<\*> MediaTek MT7601U (USB) support**
+	- Check **\[\*\] Ralink devices**
+	- Check **<\*> Ralink driver support** ---> OPEN
+		- Check **<\*> Ralink rt2500 (USB) support**
+		- Check **<\*> Ralink rt2501/rt73 (USB) support**
+		- Check **<\*> Ralink rt27xx/rt28xx/rt30xx (USB) support**
+		- Check **\[\*\] rt2800usb - Include support for rt33xx devices**
+		- Check **\[\*\] rt2800usb - Include support for rt35xx devices (EXPERIMENTAL)**
+		- Check **\[\*\] rt2800usb - Include support for rt3573 devices (EXPERIMENTAL)**
+		- Check **\[\*\] rt2800usb - Include support for rt53xx devices (EXPERIMENTAL)**
+		- Check **\[\*\] rt2800usb - Include support for rt55xx devices (EXPERIMENTAL)**
+		- Check **\[\*\] rt2800usb - Include support for unknown (USB) devices**
+	- Check **\[\*\] Realtek devices**
+	- Check **<\*> Realtek 8187 and 8187B USB support**
+	- Check **<\*> Realtek rtlwifi family of devices**
+	- Check **<\*> RTL8723AU/RTL8188[EU/CR]U/RTL819[12]CU (mac80211) support**
+	- Check **\[\*\] Include support for untested Realtek 8xxx USB devices (EXPERIMENTAL)**
+	- Check **\[\*\] ZyDAS devices**
+	- Check **<\*> USB ZD1201 based Wireless device support**
+	- Check **<\*> ZyDAS ZD1211/ZD1211B USB-wireless support**
+	- Check **<\*> Wireless RNDIS USB support**
+- In section **Device Drivers -> Multimedia support**
+	- Check **\[\*\] Digital TV support**
+	- Check **\[\*\] Software defined radio support**
+	- Remove **\[ \] Autoselect ancillary drivers (tuners, sensors, i2c, spi, frontends)** 
+- In section **Device Drivers -> Multimedia support -> Media USB Adapters**
+	- Check **<\*> AirSpy**
+	- Check **<\*> HackRF**
+	- Check **<\*> Mirics MSi2500**
+- In section **Device Drivers -> Multimedia support ->Customize TV tuners** Remove and Uncheck all
+- In section **Device Drivers -> Multimedia support -> Customize DVB Frontends**
+	- Check **\[\*\] Realtek RTL2830 DVB-T**
+	- Check **\[\*\] Realtek RTL2832 DVB-T
+	- Check **\[\*\] Realtek RTL2832 SDR
+	- Check **\[\*\] Silicon Labs Si2168**
+	- Check **\[\*\] ZyDAS ZD1301**
+- In section **Device Drivers -> USB support**
+	- Check **<\M> USB Modem (CDC ACM) support** (For 3.x Kernel) 
+	- Check **<\*> USB Modem (CDC ACM) support** (For 4.x Kernel and above)
+	- Check **<\*> USB Gadget Support** ---> OPEN (For 4.x Kernel and above)
+		- Check **\[\*\] Generic serial bulk in/out**
+		- Check **\[\*\] Abstract Control Model (CDC ACM)**
+		- Check **\[\*\] Object Exchange Model (CDC OBEX)**
+		- Check **\[\*\] Network Control Model (CDC NCM)**
+		- Check **\[\*\] Ethernet Control Model (CDC ECM)**
+		- Check **\[\*\] Ethernet Control Model (CDC ECM) subset**
+		- Check **\[\*\] RNDIS**
+		- Check **\[\*\] Ethernet Emulation Model (EEM)**
+		- Check **\[\*\] Mass storage**
+
+Finaly the kernel configuration has been done, Save and Exit the menuconfig to start the kernel compiling.
+
+> **I have done some modifications to fix some errors while compiling the kernel, Check kernel source code fork with all my modifications and patches https://github.com/r0ttenbeef/android_kernel_xiaomi_surya**
+
+## Build Kali Nethunter Full
+
+According to https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/README.md This repository contains all the pre-compiled kernels, kernel modules, and installation scripts necessary for building an installer tailored for a supported device.
+
+- So we will need to clone **kali-nethunter-project** repository and execute `./bootstrap.sh` that will clone [kali-nethunter-devices](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/) repository to `devices` directory.
+```bash
+git clone https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project.git
+cd kali-nethunter-project/nethunter-installer
+./bootstrap.sh # Press enter 3 times to skip and wait until cloning is finished
+```
+
+- You can add your unsupported device by following the instructions here: https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/blob/master/README.md
+- Now execute the following commands
+```bash
+mkdir kali-nethunter-project/nethunter-installer/devices/thirteen/surya-los
+cp kali-nethunter-kernel/out/arch/arm64/boot/Image.gz-dtb /kali-nethunter-project/nethunter-installer/devices/thirteen/surya-los
+cp -r kali-nethunter-kernel/modules_out/lib/modules/ /kali-nethunter-project/nethunter-installer/devices/thirteen/surya-los
+```
+
+- Now start build Kali Nethunter for our phone codename with Android 13 and full kali fs.
+```bash
+./build.py -d surya-los -T -fs full
+```
+
+- After finishing the build, You will have the kali rootfs archive in file like `nethunter-20230808_034812-surya-los-thirteen-kalifs-full.zip` in `kali-nethunter-project/nethunter-installer` so we can flash it but this time from **Magisk Manager**.
+```bash
+adb push nethunter-20230808_034812-surya-los-thirteen-kalifs-full.zip /storage/emulated/0
+```
+
+- Then open **Magisk Manager -> Modules -> Install from storage** and select our kali nethunter zip file.
+[15.jpg](/img/10/15.jpg)
+
+And HERE WE GO, The Custom build of Kali Nethunter is here.
+[16.jpg](/img/10/16.jpg)

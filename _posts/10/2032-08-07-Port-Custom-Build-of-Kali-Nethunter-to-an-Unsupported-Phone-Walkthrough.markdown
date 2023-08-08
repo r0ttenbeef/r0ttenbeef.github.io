@@ -294,3 +294,48 @@ adb push nethunter-20230808_034812-surya-los-thirteen-kalifs-full.zip /storage/e
 
 And HERE WE GO, The Custom build of Kali Nethunter is here.
 ![16.jpg](/img/10/16.jpg)
+
+## Add TP-Link TL-W722N v2 and v3 Drivers to the Kernel
+
+In the Kali Nethunter documentation they mentioned the following: [TP-Link TL-WN722N v1 (Please note that v2 & v3 have unsupported chipsets) but v2 and v3 may be supported using RTL8812AU drivers.)](https://www.kali.org/docs/nethunter/wireless-cards/) So after doing some researching we need to do the following steps to add support to [TP-LINK TL-WN722N v2](http://en.techinfodepot.shoutwiki.com/wiki/TP-LINK_TL-WN722N_v2) which I already have and maybe v3, I didn't tested yet.
+
+- Go to the kernel source code "In my case lineageOS kernel" and remove the following directory.
+```bash
+cd android_kernel_xiaomi_surya/drivers/staging
+rm -rf rtl8188eu
+vim Makefile # Remove line: obj-$(CONFIG_R8188EU)           += rtl8188eu/
+vim Kconfig # Remove line: source "drivers/staging/rtl8188eu/Kconfig"
+```
+
+- Then in the drivers directory, clone [**rtl8812au**](https://github.com/aircrack-ng/rtl8812au.git) driver source which is RTL8812AU/21AU and RTL8814AU driver with monitor mode and frame injection from **aircrack-ng** repository.
+```bash
+cd ..
+git clone https://github.com/aircrack-ng/rtl8812au.git
+vim Makefile # Add line: obj-y += rtl8812au/
+vim Kconfig # Add line: source "drivers/rtl8812au/Kconfig"
+```
+
+- After that go up one directory and run and open `kali-nethunter-kernel` then run `build.sh` again and select **3. Configure & recompile kernel from previous run**.
+```bash
+cd ../kali-nethunter-kernel
+./build.sh
+```
+
+- Now hit Enter to edit the kernel config
+- In section **Device Drivers**
+	- Check **<\M> Realtek 88XXau USB WiFi**
+- Save and Exit to proceed the kernel recompiling
+- After it finishes, Select **6. Create Anykernel zip** and it will be available at `kali-nethunter-kernel/output/anykernel-NetHunter.zip`
+- Now flash the custom kernel
+```bash
+adb reboot-bootloader
+fastboot boot twrp-3.5.2_10-10-surya.img
+adb push anykernel-NetHunter.zip /bluetooth
+#Go to install -> Up A Level -> bluetooth -> anykernel-NetHunter.zip and swipe to flash
+```
+
+Now after rebooting, Connect the **TP-Link TL-W722N** to the phone and open **NetHunter** application then go to **Custom Commands** and **Launch Wifite**.
+
+Select the interface the have **Qualcomm Atheros Communications AP9271 802.11n** and hit Enter.
+
+![17.png](/img/10/17.png)

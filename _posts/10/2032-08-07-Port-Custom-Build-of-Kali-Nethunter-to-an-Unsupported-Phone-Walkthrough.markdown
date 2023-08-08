@@ -238,12 +238,12 @@ Now in the kernel configuration section select "**3. Configure & recompile kerne
 - In section **Device Drivers -> Multimedia support ->Customize TV tuners** Remove and Uncheck all
 - In section **Device Drivers -> Multimedia support -> Customize DVB Frontends**
 	- Check **\[\*\] Realtek RTL2830 DVB-T**
-	- Check **\[\*\] Realtek RTL2832 DVB-T
-	- Check **\[\*\] Realtek RTL2832 SDR
+	- Check **\[\*\] Realtek RTL2832 DVB-T**
+	- Check **\[\*\] Realtek RTL2832 SDR**
 	- Check **\[\*\] Silicon Labs Si2168**
 	- Check **\[\*\] ZyDAS ZD1301**
 - In section **Device Drivers -> USB support**
-	- Check **<\M> USB Modem (CDC ACM) support** (For 3.x Kernel) 
+	- Check **\<M\> USB Modem (CDC ACM) support** (For 3.x Kernel) 
 	- Check **<\*> USB Modem (CDC ACM) support** (For 4.x Kernel and above)
 	- Check **<\*> USB Gadget Support** ---> OPEN (For 4.x Kernel and above)
 		- Check **\[\*\] Generic serial bulk in/out**
@@ -323,7 +323,7 @@ cd ../kali-nethunter-kernel
 
 - Now hit Enter to edit the kernel config
 - In section **Device Drivers**
-	- Check **<M> Realtek 88XXau USB WiFi**
+	- Check **\<M\>Realtek 88XXau USB WiFi**
 - Save and Exit to proceed the kernel recompiling
 - After it finishes, Select **6. Create Anykernel zip** and it will be available at `kali-nethunter-kernel/output/anykernel-NetHunter.zip`
 - Now flash the custom kernel

@@ -323,7 +323,7 @@ cd ../kali-nethunter-kernel
 
 - Now hit Enter to edit the kernel config
 - In section **Device Drivers**
-	- Check **<\M> Realtek 88XXau USB WiFi**
+	- Check **<M> Realtek 88XXau USB WiFi**
 - Save and Exit to proceed the kernel recompiling
 - After it finishes, Select **6. Create Anykernel zip** and it will be available at `kali-nethunter-kernel/output/anykernel-NetHunter.zip`
 - Now flash the custom kernel

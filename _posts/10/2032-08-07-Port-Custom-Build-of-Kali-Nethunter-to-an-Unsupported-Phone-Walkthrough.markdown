@@ -357,3 +357,4 @@ So finally we are done 💀
 ## Important Links
 - LineageOS 20.0 moded and patched kernel source: [https://github.com/r0ttenbeef/android_kernel_xiaomi_surya](https://github.com/r0ttenbeef/android_kernel_xiaomi_surya)
 - Xiaomi Poco X3 NFC Lineage20 support Merge Request to kali nethunter devices: [https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/merge_requests/352](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/merge_requests/352)
+- The custom kernel and kali nethunter custom build to download and flash [https://drive.google.com/drive/folders/163Jsb31qC9hcbjeCuKz-eyVT6ggeKVyq?usp=drive_link](https://drive.google.com/drive/folders/163Jsb31qC9hcbjeCuKz-eyVT6ggeKVyq?usp=drive_link)

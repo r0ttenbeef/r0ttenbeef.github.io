@@ -290,7 +290,7 @@ adb push nethunter-20230808_034812-surya-los-thirteen-kalifs-full.zip /storage/e
 ```
 
 - Then open **Magisk Manager -> Modules -> Install from storage** and select our kali nethunter zip file.
-[15.jpg](/img/10/15.jpg)
+![15.jpg](/img/10/15.jpg)
 
 And HERE WE GO, The Custom build of Kali Nethunter is here.
-[16.jpg](/img/10/16.jpg)
+![16.jpg](/img/10/16.jpg)

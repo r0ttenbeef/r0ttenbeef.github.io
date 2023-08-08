@@ -295,9 +295,9 @@ adb push nethunter-20230808_034812-surya-los-thirteen-kalifs-full.zip /storage/e
 And HERE WE GO, The Custom build of Kali Nethunter is here.
 ![16.jpg](/img/10/16.jpg)
 
-## Add TP-Link TL-W722N v2 and v3 Drivers to the Kernel
+## Add RTL8188EU Drivers for TP-Link TL-W722N v2,v3 and ALFA-AWUS036NHA to the Kernel
 
-In the Kali Nethunter documentation they mentioned the following: [TP-Link TL-WN722N v1 (Please note that v2 & v3 have unsupported chipsets) but v2 and v3 may be supported using RTL8812AU drivers.)](https://www.kali.org/docs/nethunter/wireless-cards/) So after doing some researching we need to do the following steps to add support to [TP-LINK TL-WN722N v2](http://en.techinfodepot.shoutwiki.com/wiki/TP-LINK_TL-WN722N_v2) which I already have and maybe v3, I didn't tested yet.
+In the Kali Nethunter documentation they mentioned the following: [TP-Link TL-WN722N v1 (Please note that v2 & v3 have unsupported chipsets) but v2 and v3 may be supported using RTL8812AU drivers.)](https://www.kali.org/docs/nethunter/wireless-cards/) So after doing some researching we need to do the following steps to add support to [TP-LINK TL-WN722N v2](http://en.techinfodepot.shoutwiki.com/wiki/TP-LINK_TL-WN722N_v2) which I already have and maybe v3, I didn't tested yet and [ALFA-AWUS036NHA](https://alfa-network.eu/awus036nha) which will supported too.
 
 - Go to the kernel source code "In my case lineageOS kernel" and remove the following directory.
 ```bash
@@ -338,4 +338,14 @@ Now after rebooting, Connect the **TP-Link TL-W722N** to the phone and open **Ne
 
 Select the interface the have **Qualcomm Atheros Communications AP9271 802.11n** and hit Enter.
 
-![17.png](/img/10/17.png)
+- Testing TP-Link TL-W722N v2 ![17.png](/img/10/17.png)
+
+- Testing ALFA-AWUS036NHA ![18.jpg](/img/10/18.jpg)
+
+So finally we are done 💀
+
+<div class="tenor-gif-embed" data-postid="26525865" data-share-method="host" data-aspect-ratio="1.64948" data-width="100%"><a href="https://tenor.com/view/mr-robot-elliot-alderson-computer-train-gif-26525865">Mr Robot Elliot Alderson GIF</a>from <a href="https://tenor.com/search/mr+robot-gifs">Mr Robot GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+## Important Links
+- LineageOS 20.0 moded and patched kernel source: [https://github.com/r0ttenbeef/android_kernel_xiaomi_surya](https://github.com/r0ttenbeef/android_kernel_xiaomi_surya)
+- Xiaomi Poco X3 NFC Lineage20 support Merge Request to kali nethunter devices: [https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/merge_requests/352](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/merge_requests/352)

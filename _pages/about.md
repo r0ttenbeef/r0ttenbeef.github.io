@@ -1,14 +1,14 @@
 ---
 layout: page
 title: About
-image: about.jpg
+image: about.gif
 permalink: /about/
 ---
 
-#### Whoami
+> ### Whoami
 
-My name is David. I'm a cybersecurity researcher, love to break things, code writing, blog writing, hack for fun.
+My name is David. A machine with broken parts. Love to break things, Code writing, Writing blogposts, Hack for fun 🎩.
 
-#### About the blog...
+> ### About the blog...
 
-The blog content is about cybersec of course and maybe some general things, why not.
+The blog content is about Cybersecurity, Automation and Building things. Give me a follow on my twitter [@c_midnight1337](https://twitter.com/c_midnight1337)

@@ -260,7 +260,50 @@ Now in the kernel configuration section select "**3. Configure & recompile kerne
 		- Check **\[\*\] RNDIS**
 		- Check **\[\*\] Ethernet Emulation Model (EEM)**
 		- Check **\[\*\] Mass storage**
-
+- In section **Networking support**
+	- Select **CAN bus subsystem support**
+	- Select **Network physical/parent device Netlink interface**
+	- Under **CAN bus subsystem support --->**
+		- Select **Raw CAN Protocol (raw access with CAN-ID filtering)**
+		- Select **Broadcast Manager CAN Protocol (with content filtering)**
+		- Select **CAN Gateway/Router (with netlink configuration)**
+		- Under ***"CAN Device Drivers --->"***
+			- Select **Virtual Local CAN Interface (vcan)**
+			- Select **Serial / USB serial CAN Adaptors (slcan)**
+			- Select **Platform CAN drivers with Netlink support**
+			- Select **CAN bit-timing calculation**
+			- Select **Enable LED triggers for Netlink based drivers**
+			- Select **Aeroflex Gaisler GRCAN and GRHCAN CAN devices**
+			- Select **Xilinx CAN**
+			- Select **Bosch C_CAN/D_CAN devices**
+			- Select **Bosch CC770 and Intel AN82527 devices**
+			- Select **IFI CAN_FD IP**
+			- Select **Bosch M_CAN devices**
+			- Select **Philips/NXP SJA1000 devices**
+			- Select **Softing Gmbh CAN generic support**
+			- Under **CAN SPI interfaces --->**
+				- Select **Holt HI311x SPI CAN controller**
+				- Select **Microchip MCP251x SPI CAN controllers**
+			- Under **CAN USB interfaces --->**
+				- Select **EMS CPC-USB/ARM7 CAN/USB interface**
+				- Select **ESD USB/2 CAN/USB interface**
+				- Select **Geschwister Schneider UG interfaces**
+				- Select **Kvaser CAN/USB interface**
+				- Select **PEAK PCAN-USB/USB Pro interfaces for CAN 2.0b/CAN-FD**
+				- Select **8 devices USB2CAN interface**
+- In Section **Networking Support**	
+	- Under **Networking options**
+		- Select **Virtual Socket protocol**
+		- Select **NETLINK: socket monitoring interface**
+		- Under **QoS and/or fair queueing**
+			- Select **CAN Identifier**
+- In section **Device Drivers ---> USB support ---> USB Serial Converter support --->**
+	- Select **USB Serial Console device support**
+	- Select **USB Generic Serial Driver**
+	- Select **USB Winchiphead CH341 Single Port Serial Driver**
+	- Select **USB FTDI Single Port Serial Driver**
+	- Select **USB Prolific 2303 Single Port Serial Driver**
+  
 Finaly the kernel configuration has been done, Save and Exit the menuconfig to start the kernel compiling.
 
 > **I have done some modifications to fix some errors while compiling the kernel, Check kernel source code fork with all my modifications and patches [https://github.com/r0ttenbeef/android_kernel_xiaomi_surya](https://github.com/r0ttenbeef/android_kernel_xiaomi_surya)**

@@ -2,7 +2,7 @@
 layout: post
 title: Bypass Microsoft Intune URL Blocking Browser's Policy
 date: 2025-09-17
-image: 15/00-main.jpg
+image: 15/00-main.png
 tags:
   - Bypass
   - activedirectory

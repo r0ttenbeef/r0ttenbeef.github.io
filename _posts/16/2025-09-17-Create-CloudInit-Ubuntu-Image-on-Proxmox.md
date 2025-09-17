@@ -85,8 +85,6 @@ qm set 1000 --scsihw virtio-scsi-pci --scsi0 SATA-Drive-1TB:1000/vm-1000-disk-1.
 * **Options → Boot Order:** Set **scsi0** as first boot device and disable **net0**.
 * Right-click on VM → **Convert to Template** → Confirm.
 
-> 💡 **Screenshot Example:** *Proxmox options tab with scsi0 set as boot order and VM context menu showing “Convert to Template”.*
-
 ---
 
 You can now use this template with your configuration from cloud-init without need to re-install ubuntu server each time.

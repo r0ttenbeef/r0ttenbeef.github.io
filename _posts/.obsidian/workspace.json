@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "15/2025-09-17-Bypass-Microsoft-Intune-URL-Blocking-Policy.md",
+                "file": "16/2025-09-17-Create-CloudInit-Ubuntu-Image-on-Proxmox.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-09-17-Bypass-Microsoft-Intune-URL-Blocking-Policy"
+              "title": "2025-09-17-Create-CloudInit-Ubuntu-Image-on-Proxmox"
             }
           }
         ]
@@ -171,8 +171,13 @@
   },
   "active": "3b40b98f793d5c77",
   "lastOpenFiles": [
-    "14/2025-02-18-Hunting-Vietnamese-Threat-Actors-Responsible-for-Spreading-Infostealer-Malware.md",
+    "img/16/1.png.md",
+    "16/2025-09-17-Create-CloudInit-Ubuntu-Image-on-Proxmox.md",
+    "img/16",
+    "img",
     "15/2025-09-17-Bypass-Microsoft-Intune-URL-Blocking-Policy.md",
+    "16",
+    "14/2025-02-18-Hunting-Vietnamese-Threat-Actors-Responsible-for-Spreading-Infostealer-Malware.md",
     "13/2025-02-17-LummaStealer-Malware-Static-and-Dynamic-Analysis.md",
     "05/2020-05-04-Active-Directory-Local-Lab-Environment-Setup.md",
     "15"

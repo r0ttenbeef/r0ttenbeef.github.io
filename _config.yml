@@ -2,7 +2,7 @@
 # General Site Settings
 
 title: R0ttenbeef Blog
-description: Hack for beef!
+description: Cybersecurity Blog
 baseurl: "/"
 url: "https://r0ttenbeef.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -15,10 +15,9 @@ author-avatar: author.jpg
 
 #-------------------------------
 # Contact links
-#facebook:  https://facebook.com/ # Add your Facebook handle
-twitter:   https://twitter.com/@c_midnight1337 # Add your Facebook handle
-github: https://github.com/r0ttenbeef # Add your Facebook handle
-#pinterest: https://www.pinterest.com/ # Add your Facebook handle
+twitter:   https://twitter.com/@c_midnight1337
+github: https://github.com/r0ttenbeef
+linkedin: https://www.linkedin.com/in/david-amin-e503
 
 
 #-------------------------------

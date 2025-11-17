@@ -146,6 +146,7 @@ wget -c https://packages.wazuh.com/4.12/config.yml
 ```
 
 - Edit `config.yml` and add the node names and IP values.
+
 ```yml
 nodes:
   # Wazuh indexer nodes

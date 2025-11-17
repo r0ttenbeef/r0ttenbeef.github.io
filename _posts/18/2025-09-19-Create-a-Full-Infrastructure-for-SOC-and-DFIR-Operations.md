@@ -204,6 +204,7 @@ sudo apt install debconf adduser procps
 ```
 
 - Add Wazuh repository
+
 ```bash
 sudo apt install gnupg apt-transport-https
 
@@ -223,6 +224,7 @@ sudo apt install wazuh-indexer
 
 - Configure Wazuh indexer at `/etc/wazuh-indexer/opensearch.yml`
 	- **NOTICE**: On each wazuh indexer node change the `node.name` as it configured earlier on `config.yml` file.
+
 ```yml
 network.host: 
 
@@ -246,6 +248,7 @@ plugins.security.nodes_dn:
 
 - Deploy the certificates using the compressed certificates transferred earlier to the nodes
 	- **NOTICE**: On each wazuh indexer node change the variable `NODE_NAME` as it configured earlier on `config.yml` file.
+
 ```bash
 NODE_NAME=wazuh-indexer-node1
 mkdir /etc/wazuh-indexer/certs
@@ -263,6 +266,7 @@ rm -f ./wazuh-certificates.tar
 ```
 
 - Start the indexer service.
+
 ```bash
 systemctl daemon-reload
 systemctl enable wazuh-indexer
@@ -275,6 +279,7 @@ systemctl start wazuh-indexer
 ```
 
 - Now test the cluster installation.
+
 ```bash
 curl -k -u admin:admin https://10.0.118.5:9200
 curl -k -u admin:admin https://10.0.118.6:9200
@@ -309,6 +314,7 @@ curl -k -u admin:admin https://10.0.118.5:9200/_cat/nodes?v
 The following installation steps will be applied on all wazuh server master and worker nodes.
 
 - Add Wazuh repositories.
+
 ```bash
 apt install gnupg apt-transport-https
 
@@ -320,6 +326,7 @@ apt update
 ```
 
 - Install Wazuh manager package.
+
 ```bash
 apt install wazuh-manager
 ```
@@ -388,6 +395,7 @@ openssl rand -hex 16
 ```
 
 - Configure the Wazuh server master node in `/var/ossec/etc/ossec.conf` configuration file on the **wazuh-server-master01** server.
+
 ```xml
 <cluster>
   <name>wazuh-manager-cl</name>
@@ -405,6 +413,7 @@ openssl rand -hex 16
 ```
 
 - Configure the Wazuh server worker node in `/var/ossec/etc/ossec.conf` configuration file on the **wazuh-server-worker02** server.
+
 ```xml
 <cluster>
     <name>wazuh-manager-cl</name>
@@ -422,6 +431,7 @@ openssl rand -hex 16
 ```
 
 - Configure the Wazuh server worker node in `/var/ossec/etc/ossec.conf` configuration file on the **wazuh-server-worker03** server.
+
 ```xml
 <cluster>
     <name>wazuh-manager-cl</name>
@@ -443,12 +453,14 @@ openssl rand -hex 16
 Configure the connection between wazuh server cluster and wazuh indexer cluster on all Wazuh server nodes.
 
 - Save the Wazuh indexer username and password into the Wazuh manager keystore using the wazuh-keystore tool
+
 ```bash
 echo admin | /var/ossec/bin/wazuh-keystore -f indexer -k username
 echo admin | /var/ossec/bin/wazuh-keystore -f indexer -k password
 ```
 
 - Edit `/var/ossec/etc/ossec.conf` to configure the indexer connection.
+
 ```xml
 <indexer>
   <enabled>yes</enabled>
@@ -468,6 +480,7 @@ echo admin | /var/ossec/bin/wazuh-keystore -f indexer -k password
 ```
 
 - Enable and start the Wazuh Manager services.
+
 ```bash
 systemctl daemon-reload
 systemctl enable wazuh-manager
@@ -480,6 +493,7 @@ systemctl status wazuh-manager
 ```
 
 - Enable and start Filebeat service.
+
 ```bash
 systemctl daemon-reload
 systemctl enable filebeat
@@ -491,7 +505,7 @@ systemctl start filebeat
 filebeat test output
 ```
 
-```json
+```yml
 # Output
 elasticsearch: https://127.0.0.1:9200...
   parse url... OK
@@ -526,6 +540,7 @@ apt install debhelper tar curl libcap2-bin #debhelper version 9 or later
 ```
 
 - Add Wazuh repositories
+
 ```bash
 apt install gnupg apt-transport-https
 
@@ -542,6 +557,7 @@ apt -y install wazuh-dashboard
 ```
 
 - Edit the `/etc/wazuh-dashboard/opensearch_dashboards.yml` configuration file.
+
 ```yml
 server.host: 0.0.0.0
 server.port: 443
@@ -550,6 +566,7 @@ opensearch.ssl.verificationMode: certificate
 ```
 
 - Deploy the certificates using the compressed certificates transferred earlier to the nodes
+
 ```bash
 NODE_NAME=wazuh-dashboard
 mkdir /etc/wazuh-dashboard/certs
@@ -562,6 +579,7 @@ chown -R wazuh-dashboard:wazuh-dashboard /etc/wazuh-dashboard/certs
 ```
 
 - Enable and start Wazuh dashboard service.
+
 ```bash
 systemctl daemon-reload
 systemctl enable wazuh-dashboard
@@ -569,6 +587,7 @@ systemctl start wazuh-dashboard
 ```
 
 - Edit the `/usr/share/wazuh-dashboard/data/wazuh/config/wazuh.yml` configuration file.
+
 ```yml
 hosts:
    - default:
@@ -590,6 +609,7 @@ This is about changing all default credentials used to protect the infrastructur
 ```
 
 - On wazuh server master node: **wazuh-server-master01**, Download the Wazuh passwords tool and use it to change the passwords of the Wazuh API users.
+
 ```bash
 curl -sO https://packages.wazuh.com/4.12/wazuh-passwords-tool.sh
 
@@ -615,6 +635,7 @@ echo <KIBANASERVER_PASSWORD> | /usr/share/wazuh-dashboard/bin/opensearch-dashboa
 
 - Edit the `/usr/share/wazuh-dashboard/data/wazuh/config/wazuh.yml` configuration file on **wazuh-dashboard** server.
 	- Replace `<WAZUH_WUI_PASSWORD>` with the random password generated in the first step.
+
 ```yml
 hosts:
    - default:
@@ -634,6 +655,7 @@ systemctl restart wazuh-dashboard
 
 Create a reverse proxy configuration for Wazuh dashboard to be access via internal domain https://wazuh-dashboard.seccorp.local
 - Generate self-signed certificate for Wazuh dashboard.
+
 ```bash
 mkdir /etc/nginx/ssl
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
@@ -643,6 +665,7 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 ```
 
 - Create and edit `/etc/nginx/sites-available/wazuh-dashboard.seccorp.local.conf`
+
 ```nginx
 server {
     listen 80;
@@ -693,6 +716,7 @@ ln -s /etc/nginx/sites-available/wazuh-dashboard.seccorp.local.conf /etc/nginx/s
 ```
 
 - Verify configuration and reload Nginx service.
+
 ```bash
 nginx -t
 systemctl reload nginx
@@ -708,6 +732,7 @@ systemctl reload nginx
 A load balancer distributes workloads across multiple resources. In this case, it distributes Wazuh agents among the different worker nodes in a Wazuh server cluster.
 
 - Go to the default path of **Nginx** and add the content below to `etc/nginx/conf.d/wazuh_load_balancer.conf` configuration file.
+
 ```nginx
 stream {
    upstream masternode {
@@ -731,6 +756,7 @@ stream {
 ```
 
 - Modify the `/etc/nginx/nginx.conf` file and move the `include /etc/nginx/conf.d/*.conf` line of code from within the `http{ }` directive to  above.
+
 ```nginx
 user www-data;
 worker_processes auto;
@@ -749,12 +775,14 @@ http {
 }
 ```
 - Verify configuration and reload Nginx service.
+
 ```bash
 nginx -t
 systemctl reload nginx
 ```
 
 - Edit Wazuh agent configuration add the load balancer IP address.
+
 ```xml
 <client>
   <server>
@@ -773,6 +801,7 @@ We will install [IRIS Incident management platform](https://www.dfir-iris.org/) 
 | Hostname  | RAM  | CPU     | Disk  | IP Address  |
 | --------- | ---- | ------- | ----- | ----------- |
 | iris-dfir | 4 GB | 4 Cores | 50 GB | 10.0.118.12 |
+
 - Install docker and git utiliy
 ```bash
 sudo apt install docker.io wget jq git
@@ -784,6 +813,7 @@ sudo usermod -aG docker <YOUR USERNAME>
 ```
 
 - Install latest version of docker-compose, Do this to avoid the old default version of docker-compose issues on ubuntu server
+
 ```bash
 VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)
 DESTINATION=/usr/local/bin/docker-compose
@@ -808,6 +838,7 @@ openssl rand -base64 64
 ```
 
 - The following variable will be need to change in `.env` file. **Make sure the DB password does not contain symbols that could be interpreted as an DB url (i.e # and @).**
+
 ```bash
 POSTGRES_PASSWORD: Password of the postgres user
 POSTGRES_ADMIN_PASSWORD: Password of the db admin user
@@ -817,6 +848,7 @@ IRIS_ADM_API_KEY: API key of the administrator.
 ```
 
 - Modify the admin password in `.env` file by searching for variable called **IRIS_ADM_PASSWORD** and then define password for it
+
 ```bash
 IRIS_ADM_PASSWORD=MySuperAdminPassword!
 IRIS_ADM_PASSWORD=administrator
@@ -824,6 +856,7 @@ IRIS_ADM_PASSWORD=administrator
 
 - We will comment out the nginx in `docker-compose.base.yml` and `docker-compose.yml` because we are already have our nginx reverse proxy, We will use it instead of nginx in docker ![8.png](/img/18/8.png)
 - And then we have to expose port **8000** from **app** container to be able to reach from our nginx proxy
+
 ```yml
   app:
     container_name: iriswebapp_app
@@ -866,6 +899,7 @@ docker-compose up -d --build
 ![9.png](/img/18/9.png)
 
 - Now create a reverse proxy on our **nginx-main-proxy** server, go the nginx server and and create the following nginx configuration in `/etc/nginx/sites-available/iris.seccorp.local.conf` file.
+
 ```nginx
 server {
 listen          443 ssl;
@@ -946,11 +980,13 @@ location = /50x.html {
 ```
 
 - Generate SSL self-signed certificate for IRIS.
+
 ```bash
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/iris.seccorp.local.key -out /etc/nginx/ssl/iris.seccorp.local.crt -subj "/CN=iris.seccorp.local"
 ```
 
 - Enable the configuration, test nginx configurations and reload the nginx service.
+
 ```bash
 sudo ln -sf /etc/nginx/sites-available/iris.seccorp.local.conf /etc/nginx/sites-enabled/
 nginx -t
@@ -974,6 +1010,7 @@ Integrating DFIR-IRIS with the Wazuh XDR and SIEM platform provides a framework 
 4. Obtain the API key for the logged in DFIR-IRIS user by clicking on the username and selecting **My settings**. ![12.png](/img/18/12.png)
 5. Copy your user API key. You will use this when configuring the Wazuh server. ![13.png](/img/18/13.png)
 6. Go to wazuh master node **wazuh-server-master01** and place the following the integration python script to `/var/ossec/integrations/custom-wazuh_iris.py`.
+
 ```python
 #!/var/ossec/framework/python/bin/python3
 # custom-wazuh_iris.py
@@ -1082,12 +1119,14 @@ if __name__ == "__main__":
 ```
 
 7. Set the ownership and permissions of the `/var/ossec/integrations/custom-wazuh_iris.py` file so that the root user and the wazuh group have access to it.
+
 ```bash
 chmod 750 /var/ossec/integrations/custom-wazuh_iris.py
 chown root:wazuh /var/ossec/integrations/custom-wazuh_iris.py
 ```
 
 8. Append the following configuration to the `/var/ossec/etc/ossec.conf `file to forward all alerts with a severity of 7 or higher to DFIR-IRIS.
+
 ```xml
 <ossec_config>
 
@@ -1113,6 +1152,7 @@ systemctl restart wazuh-manager
 ```
 
 I will try to test a bruteforce attack on one of wazuh servers to check if we might get alerts. ![14.png](/img/18/14.png) 
+
 ## Malware detection on linux agent using ClamAV
 
 Wazuh detects malicious files through integration with ClamAV, a free and open source antimalware engine for detecting various types of malware, including viruses and trojans.
@@ -1140,6 +1180,7 @@ sudo systemctl start clamav-freshclam clamav-daemon
 ```
 
 - Now go to **wazuh-server-master01** and modify the IRIS integration to deliver another rule levels.
+
 ```xml
 <ossec_config>
 
@@ -1179,6 +1220,7 @@ clamdscan --fdpass -v YOUR_PATH_WITH_MALWARE
 Wazuh integrates with a network-based intrusion detection system (NIDS) to enhance threat detection by monitoring and analyzing network traffic.
 
 - Install suricata on our ubuntu endpoint that have wazuh agent deployed on it.
+
 ```bash
 sudo add-apt-repository ppa:oisf/suricata-stable
 sudo apt-get update
@@ -1188,6 +1230,7 @@ sudo apt-get install suricata -y
 - Go to [https://rules.emergingthreats.net/open/](https://rules.emergingthreats.net/open/) and open suricata with latest version and copy the link of `emerging.rules.tar.gz` to download it later.
 
 - Download and extract the Emerging Threats Suricata ruleset.
+
 ```bash
 cd /tmp/ && curl -LO https://rules.emergingthreats.net/open/suricata-7.0.3/emerging.rules.tar.gz
 sudo tar -xvzf emerging.rules.tar.gz && sudo mkdir /etc/suricata/rules && sudo mv rules/*.rules /etc/suricata/rules/
@@ -1195,6 +1238,7 @@ sudo chmod 777 /etc/suricata/rules/*.rules
 ```
 
 - Modify Suricata settings in the `/etc/suricata/suricata.yaml` file and set the following variables.
+
 ```yml
 HOME_NET: "<MACHINE_IP>"
 EXTERNAL_NET: "any"
@@ -1218,6 +1262,7 @@ sudo systemctl restart suricata
 ```
 
 - Add the following configuration to the `/var/ossec/etc/ossec.conf` file of the Wazuh agent. This allows the Wazuh agent to read the Suricata logs file.
+
 ```xml
 <ossec_config>
   <localfile>
@@ -1239,8 +1284,3 @@ ping -c 20 <MACHINE_IP>
 
 - You can visualize the alert data in the Wazuh dashboard. To do this, go to the Threat Hunting module and add the filters in the search bar to query the alerts `rule.groups:suricata`.
 ![18.png](/img/18/18.png)
-
-
-
-## TODO
-- Chainsaw and Sigma Rules into wazuh ?

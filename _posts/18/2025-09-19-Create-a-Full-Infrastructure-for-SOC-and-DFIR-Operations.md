@@ -2,7 +2,7 @@
 layout: post
 title: Create a Full Infrastructure for SOC and DFIR Operations
 date: 2025-09-19
-image: 18/00-main.jpg
+image: 18/00-main.png
 tags:
   - linux
   - soc
@@ -59,6 +59,7 @@ It's the same steps for **Nginx** installation but this server will be used as a
 | Hostname       | RAM  | CPU     | Disk  | IP Address |
 | -------------- | ---- | ------- | ----- | ---------- |
 | wazuh-ngx-lb01 | 4 GB | 4 Cores | 30 GB | 10.0.118.3 |
+
 It's recommended to increase these specs in the future when you have more agents deployed and create multiple load balancer nodes.
 
 - Install the following packages
@@ -83,6 +84,7 @@ I will write the installation method that I will use in this setup to be used a 
 | Wazuh Server    | wazuh-server-worker02 | 4 GB | 4 Cores | 50 GB | 10.0.118.9  |
 | Wazuh Server    | wazuh-server-worker03 | 4 GB | 4 Cores | 50 GB | 10.0.118.10 |
 | Wazuh Dashboard | wazuh-dashboard       | 4 GB | 4 Cores | 50 GB | 10.0.118.11 |
+
 ![3.png](/img/18/3.png)
 
 Also, I have created an Alias on the firewall that have all of the IPs of our wazuh cluster to allow these IPs for internet access. ![4.png](/img/18/4.png)
@@ -190,6 +192,7 @@ for host in wazuh-indexer-node1 wazuh-indexer-node2 wazuh-indexer-node3 wazuh-se
 ```
 
 ![5.png](/img/18/5.png)
+
 ## Wazuh Indexer Nodes Installation
 
 This will be applied on all of the **wazuh-indexer** nodes servers.

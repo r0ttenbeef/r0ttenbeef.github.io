@@ -543,7 +543,7 @@ sudo systemctl restart cape-web.service
 sudo systemctl restart suricata.service
 ```
 
-
+![2.png](/img/19/2.png)
 
 - Optional: Install all available signatures from CAPE community repository
 

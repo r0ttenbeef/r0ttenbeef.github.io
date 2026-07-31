@@ -32,7 +32,6 @@ Resources:
 ## Prepare for the installation
 
 - Update and upgrade
-
 ```bash
 sudo apt update
 sudo apt upgrade
@@ -40,13 +39,11 @@ sudo apt install git
 ```
 
 - Clone CAPEv2 project
-
 ```bash
 git clone https://github.com/kevoreilly/CAPEv2.git
 ```
 
 - Replace every `<WOOT>` tag with real hardware patterns in `kvm-qemu.sh` installer
-
 ```bash
 # vim CAPEv2/installer/kvm-qemu.sh
 PEN_REPLACER='Wacom'
@@ -71,7 +68,6 @@ BOCHS_SEABIOS_BLOCK_REPLACER='AMI'
 ## Start the installation of CAPE
 
 - Install KVM with installer provided by CAPE
-
 ```bash
 sudo ./kvm-qemu.sh all $USER
 # After finishing
@@ -79,7 +75,6 @@ reboot
 ```
 
 - Install CAPE
-
 ```bash
 cd CAPEv2/installer
 sudo ./cape2.sh all cape
@@ -88,7 +83,6 @@ reboot
 ```
 
 - Install CAPE dependencies
-
 ```bash
 cd /opt/CAPEv2
 sudo apt install qemu-kvm qemu-utils
@@ -102,19 +96,16 @@ sudo -u cape /etc/poetry/bin/poetry run pip install -r extra/optional_dependenci
 ```
 
 - Switch to **cape** user
-
 ```bash
 sudo su - cape
 ```
 
 - Add the following to `.bashrc` of **cape** user
-
 ```bash
 export LIBVIRT_DEFAULT_URI="qemu:///system"
 ```
 
 - Reload `.bashrc` to apply the changes
-
 ```bash
 source ~/.bashrc
 ```
@@ -128,7 +119,6 @@ virsh net-edit default
 ```
 
 - The XML should be something similar to this
-
 ```bash
 <network>
   <name>default</name>
@@ -145,7 +135,6 @@ virsh net-edit default
 ```
 
 - CAPE Configurations
-
 ```bash
 cd /opt/CAPEv2/conf
 ```
@@ -201,7 +190,6 @@ host = 10.0.117.1
 interface = virbr0
 ```
 - routing.conf
-
 ```ini
 enable_pcap = yes
 route = internet
@@ -275,7 +263,6 @@ enabled = yes
 ```
 
 - Enable the virtual interface
-
 ```bash
 virsh net-list --all #if there's default network inactive
 virsh net-autostart default 
@@ -283,14 +270,12 @@ virsh net-start default
 ```
 
 - Install **Detect-It-Easy** Engine (Go to [https://github.com/horsicq/DIE-engine/releases](https://github.com/horsicq/DIE-engine/releases) and download the latest version available for ubuntu 22)
-
 ```bash
 cd /tmp; wget -c https://github.com/horsicq/DIE-engine/releases/download/3.21/die_3.21_Ubuntu_22.04_amd64.deb
 sudo apt install ./die_3.21_Ubuntu_22.04_amd64.deb
 ```
 
 - Install ClamAV Antivirus engine
-
 ```bash
 sudo apt install -y clamav clamav-daemon
 sudo systemctl stop clamav-freshclam
@@ -317,7 +302,6 @@ mkdir disks # Transfer your QEMU disks here
 ```
 
 - I have used the following XML for my sandbox (win10-ltsc-vm.xml)
-
 ```xml
 <domain type='kvm'>
   <name>cuckoo1</name>
@@ -436,34 +420,29 @@ mkdir disks # Transfer your QEMU disks here
 ```
 
 - Define the created XML file for the sandbox and start it
-
 ```bash
 virsh define win10-ltsc-vm.xml
 virsh start --domain cuckoo1
 ```
 
 - Guacamole install to access sandbox via CAPE web gui
-
 ```bash
 sudo ./installer/cape2.sh guacamole
 ```
 
 - Check if guacamole services are running
-
 ```bash
 systemctl status guacd.service
 systemctl status guac-web.service
 ```
 
 - Install nginx
-
 ```bash
 sudo apt install nginx
 sudo systemctl enable nginx
 ```
 
 - Create the Nginx configuration file for CAPE web gui and guacamole
-
 ```bash
 sudo vim /etc/nginx/sites-available/cape.conf
 ```
@@ -508,7 +487,6 @@ server {
 ```
 
 - Check the configuration and start nginx
-
 ```bash
 sudo ln -s /etc/nginx/sites-available/cape.conf /etc/nginx/sites-enabled/
 sudo rm /etc/nginx/sites-enabled/default
@@ -521,21 +499,18 @@ sudo systemctl restart nginx
 - Install python 3.10.6 (32-bit) https://www.python.org/ftp/python/3.10.6/python-3.10.6.exe
 
 - Run the following commands after installing of python is finished
-
 ```bash
 python -m pip install --upgrade pip
 python -m pip install Pillow
 ```
 
 - On ubuntu host
-
 ```bash
 cd /opt/CAPEv2/agent/
 python3 -m http.server --bind 10.0.117.1 9000
 ```
 
 - On the sandbox open powershell
-
 ```powershell
 curl -O beef.pyw http://10.0.117.1:9000/agent.py
 ```
@@ -544,15 +519,12 @@ curl -O beef.pyw http://10.0.117.1:9000/agent.py
 
 - create task scedular fo it if required
 
-
 - After finishing, Take a snapshot for the current status
-
 ```bash
 virsh snapshot-create-as --domain cuckoo1 --name clean-shot --description "Clean Snapshot" # as cape user
 ```
 
 - Test the execution of CAPE within the virtual env of poetry
-
 ```bash
 /etc/poetry/bin/poetry run python3 cuckoo.py
 ```

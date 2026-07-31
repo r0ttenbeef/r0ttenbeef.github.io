@@ -305,6 +305,7 @@ mkdir disks # Transfer your QEMU disks here
 ```
 
 - I have used the following XML for my sandbox (win10-ltsc-vm.xml)
+
 ```xml
 <domain type='kvm'>
   <name>cuckoo1</name>

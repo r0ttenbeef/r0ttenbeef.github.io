@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CAPEv2 Sandbox Full Guide
-date: 2025-07-31
+date: 2026-07-31
 image: 19/00-main.png
 tags:
   - linux

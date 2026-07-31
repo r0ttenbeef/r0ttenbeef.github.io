@@ -24,6 +24,9 @@ Host OS:
 Guest:
 - Ubuntu Server 22.04 LTS
 
+Sandbox:
+- Windows 10 IoT Enterprise LTSC 2021 x64
+
 Resources:
 - 8 CPU cores minimum
 - 8 GB RAM minimum

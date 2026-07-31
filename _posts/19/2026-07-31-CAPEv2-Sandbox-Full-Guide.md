@@ -47,6 +47,7 @@ git clone https://github.com/kevoreilly/CAPEv2.git
 ```
 
 - Replace every `<WOOT>` tag with real hardware patterns in `kvm-qemu.sh` installer
+
 ```bash
 # vim CAPEv2/installer/kvm-qemu.sh
 PEN_REPLACER='Wacom'

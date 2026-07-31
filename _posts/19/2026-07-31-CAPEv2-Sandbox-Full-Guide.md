@@ -69,7 +69,9 @@ BXPC_REPLACER='DELL'
 BOCHS_SEABIOS_BLOCK_REPLACER='AMI'
 ```
 
+
 ## Start the installation of CAPE
+
 
 - Install KVM with installer provided by CAPE
 ```bash
@@ -123,6 +125,7 @@ virsh net-edit default
 ```
 
 - The XML should be something similar to this
+
 ```bash
 <network>
   <name>default</name>
